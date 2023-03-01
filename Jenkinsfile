@@ -7,9 +7,15 @@ pipeline {
         sh 'ls -l'
       }
     }
+    stage('build') {
+      steps {
+        sh 'docker build -t image-prova-sh . '
+        sh 'docker images'
+      }
+    }
     stage('run') {
       steps {
-        sh '/bin/bash prova.sh'
+        sh 'docker run image-prova-sh /bin/bash prova.sh && ls '
       }
     }
   }
