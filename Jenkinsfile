@@ -1,14 +1,15 @@
 pipeline {
   agent any
   stages {
-    stage('hello') {
+    stage('check file') {
       steps {
-        sh 'echo "Hello World"'
+        sh 'pwd'
+        sh 'ls -l'
       }
     }
-    stage('ciao') {
+    stage('run') {
       steps {
-        sh 'echo "ciao"'
+        sh '/bin/bash prova.sh'
       }
     }
   }
